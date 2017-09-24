@@ -1,0 +1,29 @@
+apply plugin: 'scala'
+apply plugin: 'application'
+
+mainClassName = "LinearRegressionApp"
+
+repositories {
+    mavenLocal()
+    jcenter()
+}
+
+ext {
+    // sparkVersion = "2.3.0-SNAPSHOT"
+    sparkVersion = "2.1.0"
+}
+
+dependencies {
+    compile 'org.scala-lang:scala-library:2.11.8'
+    
+	compile "org.apache.spark:spark-core_2.11:${sparkVersion}"
+	compile "org.apache.spark:spark-sql_2.11:${sparkVersion}"
+	compile "org.apache.spark:spark-mllib_2.11:${sparkVersion}"
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.scalatest:scalatest_2.11:3.0.1'
+
+    testRuntime 'org.scala-lang.modules:scala-xml_2.11:1.0.6'
+   
+}
+
